@@ -1,0 +1,37 @@
+{
+  "name": "spencer-torres",
+  "version": "1.0.0",
+  "description": "SpencerTorres.com website",
+  "private": true,
+  "author": "Spencer Torres",
+  "LICENSE": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SpencerTorres/SpencerTorres.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SpencerTorres/SpencerTorres.com/issues"
+  },
+  "homepage": "https://SpencerTorres.com",
+  "proxy": "http://localhost:3001",
+  "dependencies": {
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-ga": "^2.2.0",
+    "react-icons": "^2.2.5",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.13"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "pub": "node scripts/publish.js",
+    "deploy": "react-scripts build && node scripts/publish.js",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "fs-extra": "^4.0.2",
+    "sftp-upload": "^0.0.7"
+  }
+}

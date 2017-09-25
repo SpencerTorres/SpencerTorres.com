@@ -1,0 +1,98 @@
+/*
+  light: #18D68C
+  dark: #168A5D
+  cream: #fffee5
+*/
+body {
+  font-family: sans-serif;
+  background-color: #fffee5;
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  margin: auto;
+  text-align: center;
+}
+
+#logo {
+  display: inline-block;
+  margin-top: 50px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 100%;
+  width: 300px;
+  height: auto;
+  transition: all 300ms ease-in-out;
+}
+#logo:hover {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+h1 {
+  display: inline;
+  font-size: 3em;
+}
+
+#name {
+  margin: auto;
+  margin-top: 50px;
+  padding: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 500px;
+  color: white;
+  border-radius: 20px;
+  background-color: rgba(24, 214, 140, 0.75);
+  transition: all 300ms ease-in-out;
+}
+#name:hover {
+  background-color: rgba(24, 214, 140, 1);
+}
+
+#icons {
+  padding: 50px;
+  padding-top: 10px;
+}
+
+.faIcon {
+  background-color: rgba(24, 214, 140, 0.75);
+  border-radius: 10px;
+  width: 128px;
+  height: 128px;
+  color: white;
+  margin: 100px;
+  padding: 10px;
+  transition: all 200ms ease-in-out;
+}
+.faIcon:hover {
+  width: 175px;
+  height: 175px;
+  background-color: rgba(24, 214, 140, 1);
+}
+
+@media only screen and (max-width: 800px) {
+  #logo {
+    width: 150px;
+  }
+
+  #icons {
+      padding: 25px;
+      padding-top: 5px;
+  }
+
+  h1 {
+    font-size: 3em;
+  }
+
+  #name {
+    padding: 0x;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 60%;
+  }
+
+  .faIcon {
+
+  }
+}
