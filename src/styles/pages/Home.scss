@@ -1,0 +1,48 @@
+@import '../globals';
+
+#home {
+	display: flex;
+	flex-direction: column;
+	flex-shrink: 0;
+	width: 100%;
+
+	#cover {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex: 0.5;
+		height: 50vh;
+		background-color: map-get($colors, second-page-background);
+		overflow-y: hidden;
+
+		#PostRenderer {
+			margin-left: 25vw;
+			flex-shrink: 0;
+
+			#post {
+				width: auto;
+			}
+		}
+	}
+	#showcase {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		flex: 1;
+		margin: auto;
+		max-width: 50vw;
+
+		#blogHeader {
+			color: map-get($colors, accent);
+			margin: 20px;
+			font-size: 3rem;
+			text-transform: uppercase;
+		}
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	#home {
+		max-width: 100%;
+	}
+}

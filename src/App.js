@@ -1,29 +1,28 @@
 import React, { Component } from 'react'
-import { FaGithub, FaTwitter, FaEnvelope } from 'react-icons/lib/fa'
+import { Switch, Redirect } from 'react-router-dom'
+import RouteProps from 'react-route-props'
+import Header from './components/Header'
+import Home from './pages/Home'
+import PostRenderer from './components/PostRenderer'
 
-import './App.css'
+import './styles/index.css'
 
-export default class App extends Component {
+class App extends Component {
   render() {
-    return (
-      <div>
-        <img id='logo' src='/s.png' alt='Spencer Torres'/>
-        <div id='name'>
-          <h1>Spencer Torres</h1>
-        </div>
 
-        <div id='icons'>
-          <a href='https://github.com/SpencerTorres' target='_blank' rel='noopener noreferrer'>
-            <FaGithub className='faIcon'/>
-          </a>
-          <a href='https://twitter.com/SpencerTorres' target='_blank' rel='noopener noreferrer'>
-            <FaTwitter className='faIcon'/>
-          </a>
-          <a href='mailto:contact@SpencerTorres.com'>
-            <FaEnvelope className='faIcon'/>
-          </a>
-        </div>
+    return (
+      <div id='app'>
+				<Header/>
+				<div id='page'>
+	        <Switch>
+						<RouteProps exact path='/' component={Home}/>
+						<RouteProps exact path='/blog/:slug' component={PostRenderer}/>
+						<RouteProps component={Redirect} to='/'/>
+	        </Switch>
+				</div>
       </div>
-    );
+    )
   }
 }
+
+export default App

@@ -1,0 +1,48 @@
+@import '../globals';
+
+.QueryRenderer {
+	display: flex;
+	animation: 250ms fadePushIn;
+
+	#list {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-wrap: wrap;
+
+		.post {
+			display: flex;
+			flex-direction: column;
+			width: 14rem;
+			height: 14rem;
+			background-color: map-get($colors, foreground);
+			color: map-get($colors, text);
+			padding: 20px;
+			margin: 10px;
+			transition: all 125ms ease-in-out;
+
+			#title {
+				color: map-get($colors, accent);
+				font-size: 1.5rem;
+				margin-bottom: 5px;
+			}
+			#date {
+				color: map-get($colors, subtext);
+				font-size: 1rem;
+				margin-bottom: 10px;
+			}
+			#summary {
+				font-size: 1.15rem;
+			}
+		}
+	}
+	.post:hover {
+		transform: scale(1.05);
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.QueryRenderer #list {
+		justify-content: center;
+	}
+}

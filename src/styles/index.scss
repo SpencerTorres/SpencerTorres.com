@@ -1,0 +1,99 @@
+@import 'globals';
+
+* {
+  border: 0;
+  font-size: 100%;
+  margin: 0;
+  outline: 0;
+  padding: 0;
+  vertical-align: baseline;
+	transform: translate3d(0, 0, 0);
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+html {
+	font-size: 100%;
+}
+
+html, body, #app {
+	background-color: map-get($colors, page-background);
+	color: map-get($colors, text);
+	display: flex;
+	flex-direction: column;
+	font-family: $font-stack;
+	flex-shrink: 0;
+	width: 100vw;
+  height: 100vh;
+	overflow-x: hidden;
+}
+
+#page {
+	display: flex;
+	justify-content: center;
+	overflow-y: auto;
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: map-get($colors, dark-accent);
+}
+
+::selection {
+  color: map-get($colors, light-background);
+  background: map-get($colors, accent);
+}
+
+::-webkit-scrollbar-track
+{
+	background-color: transparent;
+}
+
+::-webkit-scrollbar
+{
+	width: 0.5vw;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+	background-color: map-get($colors, foreground);
+}
+
+
+@media screen and (max-width: 1180px) {
+	html {
+		font-size: 80%;
+	}
+}
+
+@keyframes fadeIn {
+    from {
+			transform: translateX(-50px);
+			opacity: 0;
+		}
+    to {
+			transform: translateX(0);
+			opacity: 1;
+		}
+}
+@keyframes fadePushIn {
+    from {
+			transform: scale(0.8);
+			opacity: 0;
+		}
+    to {
+			transform: scale(1);
+			opacity: 1;
+		}
+}
+
+@import 'styles/components/Header.scss';
+@import 'styles/components/PostRenderer.scss';
+@import 'styles/components/QueryRenderer.scss';
+
+@import 'styles/pages/Home.scss';

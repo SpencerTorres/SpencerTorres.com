@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700");
+.QueryRenderer {
+  display: flex;
+  animation: 250ms fadePushIn; }
+  .QueryRenderer #list {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+    .QueryRenderer #list .post {
+      display: flex;
+      flex-direction: column;
+      width: 14rem;
+      height: 14rem;
+      background-color: #333;
+      color: #ccc;
+      padding: 20px;
+      margin: 10px;
+      transition: all 125ms ease-in-out; }
+      .QueryRenderer #list .post #title {
+        color: #18D68C;
+        font-size: 1.5rem;
+        margin-bottom: 5px; }
+      .QueryRenderer #list .post #date {
+        color: #555;
+        font-size: 1rem;
+        margin-bottom: 10px; }
+      .QueryRenderer #list .post #summary {
+        font-size: 1.15rem; }
+  .QueryRenderer .post:hover {
+    transform: scale(1.05); }
+
+@media only screen and (max-width: 800px) {
+  .QueryRenderer #list {
+    justify-content: center; } }

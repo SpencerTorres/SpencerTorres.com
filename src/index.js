@@ -1,13 +1,20 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Route } from 'react-router-dom'
+import { Provider } from 'react-redux'
+import { ConnectedRouter } from 'react-router-redux'
+import store from './store'
+import history from './store/history'
 import App from './App'
-import { BrowserRouter, Route } from 'react-router-dom'
-import TrackerGA from './util/TrackerGA'
+import axios from 'axios'
+
+axios.defaults.baseURL = 'https://api.oatload.com'
+axios.defaults.headers['x-project-id'] = '30147021339885568'
 
 ReactDOM.render((
-  <BrowserRouter>
-    <TrackerGA>
-      <Route component={App}/>
-    </TrackerGA>
-  </BrowserRouter>
-), document.getElementById('root'));
+  <Provider store={store}>
+		<ConnectedRouter history={history}>
+    	<Route component={App}/>
+		</ConnectedRouter>
+	</Provider>
+), document.getElementById('root'))
