@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { requestPost } from '../store/actions'
 import moment from 'moment'
+import Helmet from 'react-helmet'
 import Markdown from './Markdown'
 
 class PostRenderer extends Component {
@@ -19,6 +20,12 @@ class PostRenderer extends Component {
 
     return (
       <div id='PostRenderer'>
+				{ !hideTitle &&
+					<Helmet>
+						<title>{post.title + ' | Spencer Torres'}</title>
+						<meta name='description' content={post.summary}/>
+					</Helmet>
+				}
 				<div id='post'>
 					{ !hideTitle && <h1 id='title'>{post.title}</h1> }
 					{ !hideDate && <h2 id='date'>{moment(post.released_at).format('LL')}</h2> }
