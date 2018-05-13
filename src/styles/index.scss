@@ -24,8 +24,12 @@ html, body, #app {
 	flex-direction: column;
 	font-family: $font-stack;
 	flex-shrink: 0;
+	min-width: 100vw;
+	min-height: 100vh;
 	width: 100vw;
   height: 100vh;
+	max-width: 100vw;
+	max-height: 100vh;
 	overflow-x: hidden;
 }
 
@@ -34,7 +38,9 @@ html, body, #app {
 	justify-content: center;
 	overflow-y: auto;
 	overflow-x: hidden;
+	width: 100%;
 	max-width: 100%;
+	height: 100%;
 }
 
 a {
@@ -73,11 +79,9 @@ a {
 
 @keyframes fadeIn {
     from {
-			transform: translateX(-50px);
 			opacity: 0;
 		}
     to {
-			transform: translateX(0);
 			opacity: 1;
 		}
 }
@@ -94,6 +98,7 @@ a {
 
 @import 'styles/components/Header.scss';
 @import 'styles/components/PostRenderer.scss';
+@import 'styles/components/TagSelector.scss';
 @import 'styles/components/QueryRenderer.scss';
 
 @import 'styles/pages/Home.scss';

@@ -33,7 +33,7 @@
         align-items: center;
         justify-content: center; }
         #PostRenderer #post #content div img {
-          max-width: 50%; }
+          max-width: 100%; }
       #PostRenderer #post #content h1 {
         font-size: 2rem; }
       #PostRenderer #post #content h2 {

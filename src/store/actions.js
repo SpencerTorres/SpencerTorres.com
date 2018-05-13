@@ -6,10 +6,16 @@ import {
 
 	QUERY_SET,
   QUERY_WAITING,
-  QUERY_ERROR
+  QUERY_ERROR,
+
+	TAGS_SET,
+	TAGS_WAITING,
+	TAGS_ERROR
 } from './types'
 import hasher from 'object-hash'
 import axios from 'axios'
+axios.defaults.baseURL = 'https://api.oatload.com'
+axios.defaults.headers['x-project-id'] = '30147021339885568'
 
 export function hashQuery(query) {
   return hasher(query)
@@ -17,6 +23,18 @@ export function hashQuery(query) {
 
 export function setManyPosts(posts) {
 	return { type: POST_SET_MANY,	posts	}
+}
+
+export function requestTags() {
+  return dispatch => {
+    dispatch({ type: TAGS_WAITING })
+
+    return axios.get('/tags').then(res => {
+      dispatch({ type: TAGS_SET, tags: res.data })
+    }).catch(error => {
+    	dispatch({ type: TAGS_ERROR })
+    })
+  }
 }
 
 export function requestPost(slug) {

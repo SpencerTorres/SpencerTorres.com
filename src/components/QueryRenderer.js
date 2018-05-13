@@ -16,32 +16,39 @@ class QueryRenderer extends Component {
 		this.props.requestQuery(this.props.query)
 	}
 
+	componentWillReceiveProps(props) {
+		let hash = hashQuery(props.query)
+		if(hash === this.state.queryHash)
+			return
+
+		this.props.requestQuery(props.query)
+		this.setState({ queryHash: hash })
+	}
+
   render() {
 		let { queryHash } = this.state
 		let { queries, posts } = this.props
-		let query = queries[queryHash]
+		let query = queries.byHash[queryHash]
 
 		if(!query || query.waiting)
 			return <div/>
 
     return (
       <div className='QueryRenderer'>
-				<div id='list'>
-					{ query.results.map(slug => {
-						let post = posts.bySlug[slug]
+				{ query.results.map(slug => {
+					let post = posts.bySlug[slug]
 
-						if(!post)
-							return <div key={slug}/>
+					if(!post)
+						return <div key={slug}/>
 
-						return (
-							<NavLink key={post.slug} className='post' to={`/blog/${post.slug}`}>
-								<h1 id='title'>{post.title}</h1>
-								<h2 id='date'>{moment(post.released_at).format('LL')}</h2>
-								<p id='summary'>{post.summary}</p>
-							</NavLink>
-						)
-					})}
-				</div>
+					return (
+						<NavLink key={post.slug} className='post' to={`/blog/${post.slug}`}>
+							<h1 id='title'>{post.title}</h1>
+							<h2 id='date'>{moment(post.released_at).format('LL')}</h2>
+							<p id='summary'>{post.summary}</p>
+						</NavLink>
+					)
+				})}
 			</div>
     )
   }
@@ -55,7 +62,7 @@ QueryRenderer.propTypes = {
 
 function mapStateToProps(state) {
   return {
-		queries: state.queries.byHash,
+		queries: state.queries,
     posts: state.posts
   }
 }

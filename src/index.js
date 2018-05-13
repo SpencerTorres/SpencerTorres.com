@@ -6,10 +6,6 @@ import { ConnectedRouter } from 'react-router-redux'
 import store from './store'
 import history from './store/history'
 import App from './App'
-import axios from 'axios'
-
-axios.defaults.baseURL = 'https://api.oatload.com'
-axios.defaults.headers['x-project-id'] = '30147021339885568'
 
 ReactDOM.render((
   <Provider store={store}>
