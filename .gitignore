@@ -73,3 +73,6 @@ typings/
 # misc
 .DS_Store
 npm-debug.log
+
+# Built CSS Files
+src/**/*.css
