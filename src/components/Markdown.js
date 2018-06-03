@@ -17,6 +17,7 @@ const compile = marksy({
     img ({src, alt}) {
 			return (
 				<Image
+					className='image'
 					src={src}
 					alt={alt}
 					loader={<span>LOADING...</span>}
