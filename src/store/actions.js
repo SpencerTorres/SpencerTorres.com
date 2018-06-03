@@ -16,6 +16,8 @@ import hasher from 'object-hash'
 import axios from 'axios'
 axios.defaults.baseURL = 'https://api.oatload.com'
 axios.defaults.headers['x-project-id'] = '30147021339885568'
+// For development, skip tracking stats
+axios.defaults.headers['x-skip-stats'] = true
 
 export function hashQuery(query) {
   return hasher(query)
@@ -38,7 +40,12 @@ export function requestTags() {
 }
 
 export function requestPost(slug) {
-  return dispatch => {
+  return (dispatch, getState) => {
+
+		// Don't request if already cached.
+		if(getState().posts.bySlug[slug] && getState().posts.bySlug[slug].content)
+			return
+
     dispatch({ type: POST_WAITING, slug })
 
     return axios.get(`/post-by-slug/${slug}`).then(res => {
@@ -50,8 +57,12 @@ export function requestPost(slug) {
 }
 
 export function requestQuery(query) {
-  return dispatch => {
+  return (dispatch, getState) => {
 		let hash = hasher(query)
+
+		if(getState().queries.byHash[hash])
+			return
+
     dispatch({ type: QUERY_WAITING, hash })
 
     return axios.get('/posts', { params: query }).then(res => {
