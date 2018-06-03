@@ -17,7 +17,7 @@ import axios from 'axios'
 axios.defaults.baseURL = 'https://api.oatload.com'
 axios.defaults.headers['x-project-id'] = '30147021339885568'
 // For development, skip tracking stats
-axios.defaults.headers['x-skip-stats'] = true
+// axios.defaults.headers['x-skip-stats'] = true
 
 export function hashQuery(query) {
   return hasher(query)
