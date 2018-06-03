@@ -33,6 +33,7 @@
 		color: map-get($colors, accent);
 		margin: 20px;
 		font-size: 3rem;
+		user-select: none;
 		text-transform: uppercase;
 	}
 	#blogContainer {
