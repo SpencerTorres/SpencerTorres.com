@@ -8,6 +8,6 @@ All the dynamic content is powered by my custom built CMS, [Oatload.](https://oa
 - ReactJS
 - React Router
 - Redux State Management
-- SASS/SCSS
+- SCSS
 - AJAX HTTP
 - Markdown
